@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 
 const HomeRoutes = require("./src/routes/home");
+const ItemsRoutes = require("./src/routes/items");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(HomeRoutes);
+app.use(ItemsRoutes);
 
 app.listen(app.get("port"));
 console.log(`Server ${app.get("appName")} on port ${app.get("port")}`);
