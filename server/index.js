@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 
 const HomeRoutes = require("./src/routes/home");
 const ItemsRoutes = require("./src/routes/items");
@@ -10,8 +11,9 @@ app.set("case sensitive routing", true);
 app.set("appName", "Meli-backend");
 app.set("port", 4500);
 
-// It's needed to understand body
+app.use(cors());
 app.use(morgan("dev"));
+// It's needed to understand body
 app.use(express.text());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
