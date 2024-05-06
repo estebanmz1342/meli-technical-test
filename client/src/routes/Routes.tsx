@@ -5,14 +5,17 @@ import { useEffect, useState } from "react";
 import { searchItem } from "../repo/search.repository";
 import { Item } from "../models";
 import { ItemDetailPage } from "../pages/ItemDetailPage";
+import { Breadcrumbs } from "../components/breadcrumbs/Breadcrumbs";
 
 export const Router = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [data, setData] = useState<Item[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const location = useLocation();
 
   const fetchData = async () => {
     const response = await searchItem(searchText);
+    setCategories(response.categories);
     setData(response.items);
   };
 
@@ -24,6 +27,7 @@ export const Router = () => {
 
   return (
     <>
+      {categories?.length > 0 && <Breadcrumbs data={categories} />}
       <SearchToolbar valueForSearch={setSearchText}></SearchToolbar>
       <Routes>
         <Route path="/" element={<></>} />
