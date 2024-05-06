@@ -7,7 +7,7 @@
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Juan Esteban Muñoz Salazar",
   "license": "ISC",
   "description": "",
   "dependencies": {
