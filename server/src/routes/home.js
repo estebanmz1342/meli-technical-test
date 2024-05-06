@@ -15,7 +15,8 @@ router.get("/api/items", async (req, res) => {
       },
       categories: data.available_filters
         .find((filter) => filter.id == "category")
-        .values.map((categories) => categories.name),
+        ?.values?.sort((a, b) => b.results - a.results)
+        .map((categories) => categories.name),
       items: data.results.slice(0, 4).map((item) => {
         return {
           id: item.id,
