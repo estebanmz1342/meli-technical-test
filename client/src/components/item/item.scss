@@ -1,0 +1,30 @@
+.item-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 150px;
+  border: 2px solid lightgray;
+  padding: 0 15px;
+
+  .item-image-container {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 135px;
+      height: 135px;
+    }
+  }
+  .item-detail-container {
+    width: 70%;
+    padding-left: 10px;
+    .price {
+      color: black;
+      font-size: 18px;
+    }
+    .item-title {
+      color: black;
+    }
+  }
+}
